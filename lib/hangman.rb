@@ -17,8 +17,6 @@ lines.each do |line|
   end
 end
 
-
-
 class Hangman
   attr_accessor :correct_display, :incorrect_display, :amt_incorrect, :chosen_word, :allowed_incorrect, :chosen_word_split
 
@@ -70,25 +68,32 @@ load_profile = nil
 game = Hangman.new(words)
 
 until load_profile == true || load_profile == false
-  # show profiles to load
+
   files = Dir.glob("./saved_profiles/*.yaml")
-  # remove everything but the name
-  files.each do |file|
-    puts file[17..-6]
-  end
-  puts "Enter a profile to load in a previous game state or press enter to start a new game"
-  
-  user_input = gets.chomp
-  if user_input != ""
-    # load in data
-    game.from_yaml(user_input)
-    load_profile = true
-  else
-    load_profile = false
+  user_input = nil
+  profile_exists = false
+
+  until profile_exists == true || user_input == "new game"
+    # show profiles to load
+    # remove everything but the name
+    puts "\tcurrent profiles:"
+    files.each do |file|
+    puts "\t\t#{file[17..-6]}"
+    end
+    puts "Enter a profile to load in a previous game state or type 'new game' to start a new game"
+    user_input = gets.chomp
+
+    profile_exists = files.any? { |file| file.include?(user_input) }
   end
 
-  game.print_displays
+  if user_input == "new game"
+    load_profile = false
+  else
+    game.from_yaml(user_input)
+    load_profile = true
+  end
   
+  game.print_displays
 end
 
 game_saved = false
@@ -123,15 +128,14 @@ end
 
 if game.correct_display.none?('_')
   puts "You win"
+elsif game_saved == true
+  #
 else
   puts "You lose"
   puts "The word was: #{game.chosen_word}"
 end
 
-
-# What should be serialized? correct_display, incorrect_display, amt_incorrect, chosen_word
-
-
+puts "Thank you for playing!"
 
 
 

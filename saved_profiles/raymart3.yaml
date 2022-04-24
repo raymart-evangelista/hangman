@@ -1,0 +1,27 @@
+---
+:correct_display:
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+:incorrect_display: []
+:amt_incorrect: 0
+:chosen_word: acceptable
+:allowed_incorrect: 5
+:chosen_word_split:
+- a
+- c
+- c
+- e
+- p
+- t
+- a
+- b
+- l
+- e
