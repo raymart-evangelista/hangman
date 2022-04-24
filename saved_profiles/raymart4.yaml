@@ -1,0 +1,31 @@
+---
+:correct_display:
+- v
+- o
+- l
+- k
+- s
+- w
+- a
+- g
+- _
+- "n"
+:incorrect_display:
+- b
+- c
+- z
+- "y"
+:amt_incorrect: 4
+:chosen_word: volkswagen
+:allowed_incorrect: 5
+:chosen_word_split:
+- v
+- o
+- l
+- k
+- s
+- w
+- a
+- g
+- e
+- "n"

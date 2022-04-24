@@ -98,10 +98,24 @@ end
 
 game_saved = false
 
+
 until game.correct_display.none?('_') || game.amt_incorrect == game.allowed_incorrect || game_saved == true do
 
-  puts "Guess a letter or type 'save' to save the game: "
-  user_choice = gets.chomp
+  valid_choice = false
+  until valid_choice do
+    puts "Guess a letter or type 'save' to save the game: "
+    user_choice = gets.chomp.downcase
+    if user_choice == "save"
+      valid_choice = true
+    elsif user_choice.length == 1 && user_choice =~ /[a-z]/
+      if game.incorrect_display.none?(user_choice)
+        valid_choice = true
+      end
+    else
+      puts "Please enter a valid option."
+      valid_choice = false
+    end
+  end
 
   case user_choice
   when "save"
