@@ -1,0 +1,23 @@
+---
+:correct_display:
+- s
+- i
+- g
+- _
+- i
+- _
+- g
+:incorrect_display:
+- b
+- l
+:amt_incorrect: 2
+:chosen_word: signing
+:allowed_incorrect: 5
+:chosen_word_split:
+- s
+- i
+- g
+- "n"
+- i
+- "n"
+- g
