@@ -27,7 +27,7 @@ class Hangman
     @incorrect_display = Array.new()
     @amt_incorrect = 0
 
-    puts "The chosen word is #{@chosen_word}, length: #{@chosen_word.length}\n\n"
+    # puts "The chosen word is #{@chosen_word}, length: #{@chosen_word.length}\n\n"
     @chosen_word_split = @chosen_word.split("")
     puts "Hangman initialized."
   end
@@ -121,6 +121,10 @@ until game.correct_display.none?('_') || game.amt_incorrect == game.allowed_inco
   when "save"
     puts "Enter a username to save your data"
     username = gets.chomp
+    while username == "save" || username == "new game"
+      puts "Enter a valid username to save your data"
+      username = gets.chomp
+    end
     game_saved = true
     game.to_yaml(username)
   else

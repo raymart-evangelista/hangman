@@ -1,0 +1,21 @@
+---
+:correct_display:
+- _
+- _
+- _
+- _
+- _
+- _
+- _
+:incorrect_display: []
+:amt_incorrect: 0
+:chosen_word: trading
+:allowed_incorrect: 5
+:chosen_word_split:
+- t
+- r
+- a
+- d
+- i
+- "n"
+- g
