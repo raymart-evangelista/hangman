@@ -7,11 +7,11 @@
 - _
 :incorrect_display: []
 :amt_incorrect: 0
-:chosen_word: draws
+:chosen_word: mardi
 :allowed_incorrect: 5
 :chosen_word_split:
-- d
-- r
+- m
 - a
-- w
-- s
+- r
+- d
+- i

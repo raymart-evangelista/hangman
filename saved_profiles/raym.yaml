@@ -5,13 +5,23 @@
 - _
 - _
 - _
+- _
+- _
+- _
+- _
+- _
 :incorrect_display: []
 :amt_incorrect: 0
-:chosen_word: draws
+:chosen_word: indication
 :allowed_incorrect: 5
 :chosen_word_split:
+- i
+- "n"
 - d
-- r
+- i
+- c
 - a
-- w
-- s
+- t
+- i
+- o
+- "n"

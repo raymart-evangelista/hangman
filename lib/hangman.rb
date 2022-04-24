@@ -83,7 +83,7 @@ until load_profile == true || load_profile == false
     puts "Enter a profile to load in a previous game state or type 'new game' to start a new game"
     user_input = gets.chomp
 
-    profile_exists = files.any? { |file| file.include?(user_input) }
+    profile_exists = files.any? { |file| file[17..-6].eql?(user_input) }
   end
 
   if user_input == "new game"
@@ -125,8 +125,20 @@ until game.correct_display.none?('_') || game.amt_incorrect == game.allowed_inco
       puts "Enter a valid username to save your data"
       username = gets.chomp
     end
-    game_saved = true
-    game.to_yaml(username)
+    profile_exists = files.any? { |file| file[17..-6].eql?(username) }
+    if profile_exists
+      puts "Are you sure you want to overwrite '#{username}' profile? (y/n)"
+      overwrite_option = gets.chomp
+      if overwrite_option == "y"
+        game_saved = true
+        game.to_yaml(username)
+      else
+        puts "Game was not saved."
+      end
+    else
+      game_saved = true
+      game.to_yaml(username)
+    end
   else
     letter = user_choice
     if game.chosen_word_split.include?(letter)
